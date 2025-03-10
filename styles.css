@@ -1,204 +1,123 @@
-/* styles.css */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
 }
-
 body {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
-    background-color: #f0f2f5;
-    color: #333;
-    overflow: hidden; /* Prevents scrolling issues */
+    background-color: white;
+    font-family: Arial, sans-serif;
+    padding: 10px;
 }
-
-/* Main Layout */
 .container {
-    display: flex;
-    flex: 1;
-    gap: 20px;
-    padding: 20px;
+    position: relative;
+    width: 90%;
+    max-width: 900px;
 }
-
-/* Left AI Tab */
-.ai-tab {
-    width: 200px;
-    background-color: #fff;
+.header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    padding: 1px;
+}
+.header span img {
+    max-width: 200px;
+    height: auto;
+}
+.canvas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid black;
     border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+.toolbar {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.ai-tab:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.ai-tab h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #1a73e8;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.ai-tab p {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.4;
-}
-
-/* Center Canvas */
-.canvas-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#drawingCanvas {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    max-width: 100%;
-    max-height: 100%;
-    transition: box-shadow 0.3s ease;
-}
-
-#drawingCanvas:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Right Tools Bar */
-.tools-bar {
-    width: 200px;
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tools-bar:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.tools-bar button, 
-.tools-bar input {
-    padding: 10px;
+.toolbar button {
+    background-color: black;
+    color: white;
     border: none;
     border-radius: 8px;
-    background-color: #1a73e8;
-    color: #fff;
-    font-size: 0.9rem;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
 }
-
-.tools-bar button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-    background-color: #1557b0;
+.toolbar button img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
 }
-
-.tools-bar button:active {
-    transform: scale(0.95);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+.toolbar button:hover {
+    transform: scale(1.15);
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
 }
-
-.tools-bar input[type="color"],
-.tools-bar input[type="range"] {
-    background-color: transparent;
-    padding: 0;
-    cursor: pointer;
-    width: 100%;
-}
-
-.tools-bar input[type="color"] {
-    height: 40px;
-    border-radius: 8px;
-    transition: transform 0.2s ease;
-}
-
-.tools-bar input[type="color"]:hover {
-    transform: scale(1.05);
-}
-
-.tools-bar input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    height: 5px;
-    background: #ddd;
-    border-radius: 5px;
-    outline: none;
-    transition: background 0.2s ease;
-}
-
-.tools-bar input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: #1a73e8;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tools-bar input[type="range"]::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-}
-
-.tools-bar input[type="range"]:hover {
-    background: #ccc;
-}
-
-/* Subtle Artistic Ripple Effect on Click */
-.tools-bar button::after {
-    content: '';
+.genai-button {
     position: absolute;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
+    left: -50px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 1.2rem;
+    padding: 5px;
 }
-
-.tools-bar button:active::after {
-    width: 100px;
-    height: 100px;
+.genai-button img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
 }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding: 10px;
+.genai-button:hover {
+    transform: scale(1.15);
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 600px) {
+    .toolbar {
+        right: -40px;
     }
-
-    .ai-tab, .tools-bar {
-        width: 100%;
-        margin-bottom: 10px;
+    .toolbar button, .genai-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
-
-    #drawingCanvas {
-        width: 100%;
-        height: auto;
+    .toolbar button img, .genai-button img {
+        width: 65%;
+        height: 65%;
+    }
+    .canvas-container {
+        aspect-ratio: 9 / 16;
+    }
+    .genai-button {
+        left: -40px;
     }
 }
