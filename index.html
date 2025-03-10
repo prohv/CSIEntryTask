@@ -3,41 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimal Drawing Board</title>
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/prohv/CSIEntryTask/main/styles.css">      
+    <title>Contrast-AI</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <!-- Left AI Tab -->
-        <div class="ai-tab">
-            <h3>AI Assistant</h3>
-            <p>Coming soon: AI suggestions and enhancements for your artwork.</p>
+        <div class="header">
+            <span><img src="https://i.ibb.co/HDhjTsmn/Contrast-AI.png" alt="Title"></span>
         </div>
-
-        <!-- Center Canvas -->
         <div class="canvas-container">
-            <canvas id="drawingCanvas" width="600" height="400"></canvas>
         </div>
-
-        <!-- Right Tools Bar -->
-        <div class="tools-bar">
-            <input type="color" id="brushColor" value="#000000">
-            <input type="range" id="brushSize" min="1" max="50" value="5">
-            <button id="brushTool">Brush</button>
-            <button id="textTool">Add Text</button>
-            <button id="clearCanvas">Clear</button>
-            <button id="saveImage">Save</button>
-            <button id="shareImage">Share</button>
+        <div class="toolbar">
+            <button><img src="https://i.ibb.co/DHg8VhBk/LS20250310222130.png" alt="Paint"></button>
+            <button><img src="https://i.ibb.co/ns2nCC3Q/LS20250310222128.png" alt="Text"></button>
+            <button><img src="https://i.ibb.co/zVYWzfYz/LS20250310222125.png" alt="Erase"></button>
+            <button><img src="https://i.ibb.co/4Z7HXtVQ/LS20250310222123.png" alt="Save"></button>
+            <button><img src="https://i.ibb.co/hFdR2hCB/LS20250310222119.png" alt="Share"></button>
         </div>
+        <button class="genai-button"><img src="https://i.ibb.co/0j9R68Sp/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f746875.png" alt="GenAI"></button>
     </div>
-
-    <script>
-        // Basic setup for future JavaScript enhancements
-        const canvas = document.getElementById('drawingCanvas');
-        const ctx = canvas.getContext('2d');
-
-        // Placeholder for future functionality
-        console.log("Canvas initialized. Ready for drawing logic.");
-    </script>
 </body>
 </html>
